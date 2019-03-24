@@ -1,0 +1,77 @@
+body {
+	background-color: #2e51a2;
+}
+
+.white {
+	color: white;
+}
+
+.shortbr {
+	display: block;
+	margin: 10px 0;
+}
+
+.poop {
+	color: white;
+}
+
+.shortinput {
+	width: 300px !important;
+}
+
+.boxed {
+	/*border: 1px solid white;*/
+	/*background-color: white;*/
+	border-radius: 25px;
+	height: 400px;
+	width: 350px;
+}
+
+.curved {
+	border-radius: 10px;
+	display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    max-width: 250px;
+    max-height: 300px;
+    min-width: 250px;
+    min-height: 300px;
+
+}
+
+#meeperZ .meep {
+	border: 1px solid white;
+	background-color: white;
+	position: relative;
+	visibility: hidden;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#meeperZ:hover .meep {
+	visibility: visible;
+}
+
+.sidebyside {
+	display: inline-block;
+	float: none; /* idk man */
+	vertical-align: middle;
+	/*margin-left: auto;
+    margin-right: auto;*/
+
+}
+
+/*img .sidebyside{
+	float: left;
+}
+*/
+.text {
+	word-wrap: break-word;
+	text-overflow: ellipsis;
+}
+
+.custom {
+	vertical-align:top;
+}

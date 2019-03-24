@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/main.css">
+        <link rel="stylesheet" href="/static/aniai.css">
+        <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon-96x96.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="templates/autocomplete.js"></script>
+        <script src="templates/theme.js"></script>
+        <script type="text/javascript">function chBackcolor(color) {
+            document.body.style.background = color;
+        }</script>
+    </head>
+    <body>
+        <input type="button" onclick="chBackcolor('pink');">
+        <input type="button" onclick="chBackcolor('#2e51a2');">
+        <input type="button" onclick="chBackcolor('black');">
+        <div class="topcorner">
+            <p class="white">Project {{ name }}</p>
+            <p class="white">Built at Cornell University by {{ netid }}</p>
+        </div>
+        <form class="form-inline global-search">
+            <h1 style="font-size: 85px; font-family:Futura; color: white"> <!--#4285F4 -->
+       <!--          A
+                <font color=#EA4335>n</font>
+                <font color=#FBBC05>i</font>
+                a
+                <font color=#34A853>i</font>
+                <font color=#EA4335>&#24859;</font> -->
+                Aniai&#24859;
+            </h1>
+            <!-- <br class="shortbr"> -->
+            <hr style="height:30pt; visibility:hidden;" />
+            <h3 style="font-family:Futura; color: white"><i>アニメーション</i>
+            </h3>
+            <br><br>
+            
+            <div class="form-group">
+                <input id="input" type="text" name="search" class="form-control shortinput" placeholder="Anime Title" autocomplete="off">
+                 <button type="submit" class="btn btn-info"> Add </button>
+            </div>
+            <br>
+            <br>
+            <div>
+                <input id="taginput" type="text" name="tagsearch" class="form-control shortinput" placeholder="Tag">
+                 <button type="submit" class="btn btn-info"> Add </button>
+            </div>
+            <br>
+            Show Additional Settings:
+            <br>
+            Hide Same Series <input id="checkBox" type="checkbox" name="hide_ss">
+            <br>
+            Licensed in America <input id="checkBox" type="checkbox" name="licensed">
+            <br>
+            Finished <input id="checkBox" type="checkbox" name="finished">
+            <br>
+            Time Range Early:  <input id="time" type="text" name="time">
+             <br>
+            Show:
+            TV: <input id="checkBox" type="checkbox" name="TV">
+            Movies: <input id="checkBox" type="checkbox" name="movie">
+            OVA: <input id="checkBox" type="checkbox" name="ova">
+            ONA: <input id="checkBox" type="checkbox" name="ona">
+            SPECIAL: <input id="checkBox" type="checkbox" name="special">
+            <br>
+            Minimum Rating: <input id="minratinginput" type="text" name="min_rating">
+            <br>
+            <button type="submit" class="btn btn-info"> Submit </button>
+
+        </form>
+        <form class="form-inline global-search">
+
+        <h1>{{output_message}}</h1>
+
+        <div class="container-fluid table custom">
+            <!-- <div> -->
+            {% if data %}
+                {% for d in data %}
+                    {% if loop.first %}<div class="row">{% endif %}  
+                    <br>
+                    <div class="boxed sidebyside">
+                        <!-- <p>{{d}}</p> -->
+                        <div class="col-sm-6 col-md-6 col-xs-12 image-container" id='meeperZ'>
+                            <img src={{d["anime_image_url"]}} class="curved hover"></img>
+                             <p class="meep">
+                                <b>{{d["anime_english_title"]}}</b> 
+                                Rating: {{d["anime_rating_value"]}}
+                                Number of Ratings: {{d["anime_rating_count"]}}
+                                Type: {{d["anime_type"]}}
+                                Time: {{d["anime_premiered"]}}
+                                <!-- <i>Synposis:</i> {{d["anime_synopsis"]}} -->
+                            </p>
+                        </div>
+                        <!-- <div class="col-sm-6 col-md-6 col-xs-12 text">   -->
+                           
+                        <!-- </div> -->
+                    </div>
+                    {% if loop.index % 3 == 0 %}</div>
+                    <div class="row">{% endif %}
+                    {% if loop.last %}</div>{% endif %}
+
+
+
+
+<!-- <div class="border row">
+  <div class="border col-md-4">.col-md-4</div>
+  <div class="border col-md-4">.col-md-4</div>
+  <div class="border col-md-4">.col-md-4</div>
+</div> -->
+                {% endfor %}
+            {% endif %}
+            <!-- </div> -->
+        </div>
+        </form>
+    </body>
+
+</html>
